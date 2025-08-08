@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Express HTML/CSS/jQuery Example</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery via CDN (recommended) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>Hello Express + jQuery!</h1>
+    <button id="helloBtn">Click Me!</button>
+    <p id="response"></p>
+
+    <script>
+    $('#helloBtn').click(function() {
+        let text = $('#helloBtn').text();
+        if (text === 'Clear') {
+            $('#helloBtn').text('Click Me!');
+            $('#response').text('');
+        } else {
+            $('#helloBtn').text('Clear');
+            $('#response').text('Button clicked! Powered by jQuery.');
+        }
+    });
+    </script>
+</body>
+</html>

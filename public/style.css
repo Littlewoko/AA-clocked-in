@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    margin: 2em;
+}
+h1 {
+    color: #3498db;
+}
+button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+}
+#response {
+    margin-top: 1em;
+    color: #27ae60;
+}
