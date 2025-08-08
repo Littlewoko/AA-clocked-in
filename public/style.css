@@ -14,3 +14,28 @@ button {
     margin-top: 1em;
     color: #27ae60;
 }
+#pokemonForm label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+#pokemonForm input,
+#pokemonForm button {
+    margin-right: 0.5em;
+}
+.nav-bar {
+    background: #f4f4f4;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.nav-bar a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 16px;
+    font-weight: 500;
+}
+.nav-bar a:hover {
+    text-decoration: underline;
+}

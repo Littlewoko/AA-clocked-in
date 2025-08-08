@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="common.js"></script>
+</head>
+<body>
+    <div id="navBar"></div>
+
+    <h1>Pokemon Viewer</h1>
+    <form id="pokemonForm">
+        <label for="pokeId">
+            Fetch one of the original 151 Pokemon!
+        </label>
+        <input type="number" id="pokeId" min="1" max="151" value="1">
+        <button type="submit" id="fetchBtn">Fetch Pokemon</button>
+    </form>
+    <div id="display"></div>
+    <pre id="output"></pre>
+    <script>
+    $('#pokemonForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent form from submitting normally
+        var id = $('#pokeId').val();
+        $.ajax({
+            url: `api/pokemon/${id}`,
+            type: 'GET',
+            success: function(data) {
+                $('#display').html(
+                    `<h2>${data.name}</h2>
+                     <img src="${data.front_default}" alt="${data.name} sprite">`
+                );
+            },
+            error: function(xhr) {
+                $('#output').text('Error: ' + xhr.responseJSON.error);
+            }
+        });
+    });
+    </script>
+</body>
+</html>
