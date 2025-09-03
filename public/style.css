@@ -44,7 +44,7 @@ ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
 .month {
-  padding: 70px 25px;
+  padding: 10px 0;
   width: 100%;
   background: #56adfa;
   text-align: center;
@@ -106,6 +106,18 @@ body {font-family: Verdana, sans-serif;}
 }
 
 #prev-month,
-#next-month {
+#next-month,
+#calendar-days li {
     cursor: pointer; 
+}
+
+.worked-day {
+  background-color: #56adfa; 
+  color: white; 
+  border-radius: 50%;
+}
+
+#calendar-days li:hover {
+  cursor: pointer;
+  background-color: #419aff;
 }

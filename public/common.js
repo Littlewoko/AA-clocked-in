@@ -3,44 +3,66 @@ $(function() {
     $("#navBar").load("components/navbar.html");
 });
 
-// The Logic For Calender Page, Todays Date, Highlighting, Day Amount In The Month etc.
 document.addEventListener("DOMContentLoaded", function () {
     const monthYearElement = document.getElementById("month-year");
     const daysElement = document.getElementById("calendar-days");
+    const metricsElement = document.createElement("div");
+    metricsElement.id = "metrics-display";
+    document.body.appendChild(metricsElement);
 
     const today = new Date();
     let currentMonth = today.getMonth();
     let currentYear = today.getFullYear();
 
 
-    function updateCalendar(month, year) {
+    const hoursWorkedData = {
+        "2023-10-01": 8,
+        "2023-10-02": 6,
+        "2023-10-03": 7.5,
+        "2023-10-05": 4,
+        "2023-10-10": 9,
+    };
 
+    function updateCalendar(month, year) {
         const monthNames = [
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
         monthYearElement.textContent = `${monthNames[month]} ${year}`;
-
         daysElement.innerHTML = "";
-
+    
         const firstDay = new Date(year, month, 1).getDay();
-        const totalDays = new Date(year, month + 1, 0).getDate(); 
-
+        const totalDays = new Date(year, month + 1, 0).getDate();
         const blankDays = (firstDay === 0 ? 6 : firstDay - 1);
+    
+        // Add blank days
         for (let i = 0; i < blankDays; i++) {
             const blankDay = document.createElement("li");
             blankDay.classList.add("empty");
             daysElement.appendChild(blankDay);
         }
-
+    
+        // Add days of the month
         for (let day = 1; day <= totalDays; day++) {
             const dayElement = document.createElement("li");
             dayElement.textContent = day;
-
-            if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-                dayElement.classList.add("today");
+    
+            const selectedDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    
+            // Highlight days with hours worked
+            if (hoursWorkedData[selectedDate]) {
+                dayElement.classList.add("worked-day");
             }
-
+    
+            // Add click event with confirm
+            dayElement.addEventListener("click", function () {
+                const isConfirmed = confirm(`Do you want to view the summary for ${selectedDate}?`);
+                if (isConfirmed) {
+                    // Redirect to summary page for selected date
+                    window.location.href = `summaryscreen.html?date=${selectedDate}`;
+                }
+            });
+    
             daysElement.appendChild(dayElement);
         }
     }
@@ -63,5 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCalendar(currentMonth, currentYear);
     });
 
+    // Initialize the calendar
     updateCalendar(currentMonth, currentYear);
 });
