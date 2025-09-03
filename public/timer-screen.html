@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer Screen</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="common.js"></script>
+</head>
+<body>
+    <div id="navBar"></div>
+
+    <h1>This will be our timer screen</h1>
+    <span id="date-display"></span>
+
+    <div>
+        <button id = "log-start-time" class ="timer-button">Start</button>
+        <button id = "log-end-time" class ="timer-button">End</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            displayCurrentDate();
+            timeLogging();
+        })
+    </script>
+</body>
+</html>
