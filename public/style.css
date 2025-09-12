@@ -40,6 +40,15 @@ button {
     text-decoration: underline;
 }
 
+.timer-button {
+    display: block;
+    width: 200px;
+    padding: 15px 20px;
+    margin: 10px auto;
+    border-radius: 5px;
+    
+}
+
 
 
 /*Summary Table*/
