@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar Screen</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="common.js"></script>
+</head>
+<body>
+    <div id="navBar"></div>
+
+    <h1>Calendar Page   </h1>
+    <span id="date-display"></span>
+
+    <div class="month">
+        <ul>
+            <li class="prev" id="prev-month">&#10094;</li>
+            <li class="next" id="next-month">&#10095;</li>
+            <li id="month-year"></li>
+        </ul>
+    </div>
+    
+    <ul class="weekdays">
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+        <li>Su</li>
+    </ul>
+    
+    <ul class="days" id="calendar-days"></ul>
+</body>
+</html>
