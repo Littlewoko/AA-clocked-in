@@ -14,15 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentMonth = today.getMonth();
     let currentYear = today.getFullYear();
 
-
-    const hoursWorkedData = {
-        "2023-10-01": 8,
-        "2023-10-02": 6,
-        "2023-10-03": 7.5,
-        "2023-10-05": 4,
-        "2023-10-10": 9,
-    };
-
     function updateCalendar(month, year) {
         const monthNames = [
             "January", "February", "March", "April", "May", "June",
@@ -48,11 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
             dayElement.textContent = day;
     
             const selectedDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-    
-            // Highlight days with hours worked
-            if (hoursWorkedData[selectedDate]) {
-                dayElement.classList.add("worked-day");
-            }
     
             // Add click event with confirm
             dayElement.addEventListener("click", function () {
