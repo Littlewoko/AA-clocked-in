@@ -108,16 +108,25 @@ body {font-family: Verdana, sans-serif;}
 #prev-month,
 #next-month,
 #calendar-days li {
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .worked-day {
-  background-color: #56adfa; 
-  color: white; 
+  background-color: #56adfa;
+  color: white;
   border-radius: 50%;
 }
 
 #calendar-days li:hover {
   cursor: pointer;
   background-color: #419aff;
+}
+
+.timer-button {
+    display: block;
+    width: 200px;
+    padding: 15px 20px;
+    margin: 10px auto;
+    border-radius: 5px;
+
 }
